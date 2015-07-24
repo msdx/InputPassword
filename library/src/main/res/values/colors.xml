@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="auth_bt_normal">#36c27b</color>
+    <color name="auth_bt_pressed">#2faa6b</color>
+    <color name="auth_title">#2faa6b</color>
+</resources>

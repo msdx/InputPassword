@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/auth_tips"
+        android:layout_margin="16dp"
+        android:textColor="#ffcc0000"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/auth_edit"
+        android:inputType="numberPassword"
+        android:textSize="18sp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:editable="false"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:focusableInTouchMode="false"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/auth_keyboard"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        app:columnCount="3"
+        app:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+        <Button style="@style/gridlayout_button" />
+
+    </android.support.v7.widget.GridLayout>
+
+</LinearLayout>
