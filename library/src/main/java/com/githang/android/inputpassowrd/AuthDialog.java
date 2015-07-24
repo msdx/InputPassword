@@ -4,6 +4,8 @@
  */
 package com.githang.android.inputpassowrd;
 
+import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
@@ -22,7 +24,7 @@ import java.util.Random;
  *
  * @author msdx (645079761@qq.com)
  */
-public class AuthDialog extends Dialog {
+public class AuthDialog {
     private static final Random random = new Random();
     private Context mContext;
     private Resources mResources;
@@ -37,14 +39,20 @@ public class AuthDialog extends Dialog {
 
     private int mMaxLength;
 
+    private boolean mCustomTitleColor;
+
+    private Dialog mDialog;
+    private AlertDialog.Builder mBuilder;
+
     public AuthDialog(Context context) {
         this(context, 0);
     }
 
+    @TargetApi(11)
     public AuthDialog(Context context, @StyleRes int theme) {
-        super(context, theme);
+        mBuilder = new AlertDialog.Builder(context, theme);
         mContext = context;
-        mResources = getContext().getResources();
+        mResources = context.getResources();
         mMaxLength = Integer.MAX_VALUE;
         initViews();
     }
@@ -63,16 +71,15 @@ public class AuthDialog extends Dialog {
         setupDeleteKey();
         setupEnterKey();
 
-        this.setTitle("请输入授权密码");
-        this.setContentView(view);
-        int titleColor = mResources.getColor(R.color.auth_title);
-        setTitleColor(titleColor);
-        setTitleLineColor(titleColor);
+        mBuilder.setTitle("请输入授权密码");
+        mBuilder.setView(view);
+        mDialog = mBuilder.create();
+
     }
 
     private void setTitleColor(int color) {
-        final int titleId = mResources.getIdentifier("title", "id", "android");
-        final View title = findViewById(titleId);
+        final int titleId = mResources.getIdentifier("alertTitle", "id", "android");
+        final View title = mDialog.findViewById(titleId);
         if (title != null) {
             ((TextView) title).setTextColor(color);
         }
@@ -82,14 +89,19 @@ public class AuthDialog extends Dialog {
      * 修改对话框标题蓝色线的颜色为主题颜色.
      */
     private void setTitleLineColor(int color) {
-        Resources resources = getContext().getResources();
-        int dividerId = resources.getIdentifier("android:id/titleDivider", null, null);
-        View divider = this.findViewById(dividerId);
-        divider.setBackgroundColor(color);
+        int dividerId = mResources.getIdentifier("android:id/titleDivider", null, null);
+        View divider = mDialog.findViewById(dividerId);
+        if(divider != null) {
+            divider.setBackgroundColor(color);
+        }
     }
 
     public void setMaxLength(int length) {
         mMaxLength = length;
+    }
+
+    public void setCustomTitleColor(boolean isCustomColor) {
+        this.mCustomTitleColor = isCustomColor;
     }
 
     private void setupEnterKey() {
@@ -155,12 +167,20 @@ public class AuthDialog extends Dialog {
         mTips.setText(error);
     }
 
-    @Override
     public void show() {
         mPassword.getText().clear();
         mTips.setText("");
         disorderKey();
-        super.show();
+        mDialog.show();
+        if(mCustomTitleColor) {
+            int titleColor = mResources.getColor(R.color.auth_title);
+            setTitleColor(titleColor);
+            setTitleLineColor(titleColor);
+        }
+    }
+
+    public void dismiss() {
+        mDialog.dismiss();
     }
 
     public void setOnEnterListener(OnEnterListener listener) {
