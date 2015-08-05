@@ -9,7 +9,9 @@
 
     <TextView
         android:id="@+id/auth_tips"
-        android:layout_margin="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp"
         android:textColor="#ffcc0000"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
@@ -18,11 +20,10 @@
         android:id="@+id/auth_edit"
         android:inputType="numberPassword"
         android:textSize="18sp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
+        android:background="@drawable/gh_inputpassword_edittext"
         android:editable="false"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:focusableInTouchMode="false"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />

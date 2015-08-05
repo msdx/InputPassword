@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.support.annotation.StyleRes;
 import android.support.v7.widget.GridLayout;
 import android.view.LayoutInflater;
@@ -106,6 +107,7 @@ public class AuthDialog {
 
     private void setupEnterKey() {
         mEnterKey = (Button) mKeyboard.getChildAt(11);
+        mEnterKey.setTextColor(Color.WHITE);
         mEnterKey.setText("确定");
         mEnterKey.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +121,7 @@ public class AuthDialog {
 
     private void setupDeleteKey() {
         mDelKey = (Button) mKeyboard.getChildAt(10);
+        mDelKey.setTextColor(Color.WHITE);
         mDelKey.setText("删除");
         mDelKey.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,6 +149,7 @@ public class AuthDialog {
         mNumKeys = new Button[keyText.length];
         for (int i = 0; i < keyText.length; i++) {
             mNumKeys[i] = (Button) mKeyboard.getChildAt(i);
+            mNumKeys[i].setTextColor(Color.WHITE);
             mNumKeys[i].setOnClickListener(numListener);
         }
     }
