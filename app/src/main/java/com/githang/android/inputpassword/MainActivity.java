@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final AuthDialog dialog = new AuthDialog(this, R.style.Dialog);
+        final AuthDialog dialog = new AuthDialog(this);
         dialog.setOnEnterListener(new AuthDialog.OnEnterListener() {
             @Override
             public void onInput(AuthDialog dialog, String input) {
