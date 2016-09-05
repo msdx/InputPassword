@@ -17,7 +17,7 @@ InputPassword是一个简单的数字密码验证对话框。界面如下：
 ```
 ## 声明依赖
 ```gradle
-    compile 'com.githang:inputpassword:0.4'
+    compile 'com.githang:inputpassword:0.4.1'
 ```
 
 ## Java代码调用
