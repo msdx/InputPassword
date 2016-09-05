@@ -18,15 +18,16 @@
 
     <EditText
         android:id="@+id/auth_edit"
-        android:inputType="numberPassword"
-        android:textSize="18sp"
-        android:background="@drawable/gh_inputpassword_edittext"
-        android:editable="false"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:background="@drawable/gh_inputpassword_edittext"
+        android:editable="false"
+        android:focusable="false"
         android:focusableInTouchMode="false"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:inputType="numberPassword"
+        android:textSize="18sp"/>
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/auth_keyboard"

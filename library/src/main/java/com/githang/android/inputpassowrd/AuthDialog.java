@@ -76,6 +76,7 @@ public class AuthDialog {
         mBuilder.setView(view);
         mDialog = mBuilder.create();
 
+        mNumKeys[0].requestFocus();
     }
 
     private void setTitleColor(int color) {
