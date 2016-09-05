@@ -3,7 +3,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
     }
 }
 apply plugin: 'com.android.library'
@@ -31,4 +32,6 @@ dependencies {
     compile 'com.android.support:gridlayout-v7:22.0.0'
 }
 
-apply from: 'bintray.gradle'
+if (hasProperty('bintrayUser') || hasProperty('BINTRAY_USER')) {
+    apply from: 'bintray.gradle'
+}
